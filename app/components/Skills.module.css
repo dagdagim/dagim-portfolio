@@ -1,0 +1,179 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: radial-gradient(circle at top, rgba(129, 140, 248, 0.16), transparent 55%), #f8fafc;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+}
+
+.parallaxGlow {
+  position: absolute;
+  inset: auto 0 -20% 0;
+  height: clamp(16rem, 36vw, 22rem);
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.28), rgba(59, 130, 246, 0.08) 60%, transparent 80%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.wrapper {
+  position: relative;
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: clamp(2.75rem, 7vw, 4.5rem);
+  display: grid;
+  gap: 1rem;
+}
+
+.title {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 46rem;
+  font-size: 1.05rem;
+  color: var(--muted-foreground);
+  line-height: 1.8;
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
+}
+
+.card {
+  position: relative;
+  border-radius: 1.75rem;
+  padding: clamp(1.8rem, 4vw, 2.5rem);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(236, 233, 255, 0.48));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 35px 65px rgba(79, 70, 229, 0.12);
+  display: grid;
+  gap: 1.5rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(147, 197, 253, 0.18), rgba(196, 181, 253, 0.1));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 42px 80px rgba(79, 70, 229, 0.18);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.cardDescription {
+  text-align: center;
+  font-size: 0.95rem;
+  color: rgba(71, 85, 105, 0.75);
+  line-height: 1.6;
+}
+
+.skillList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.skillTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(129, 140, 248, 0.18);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.68), rgba(224, 231, 255, 0.42));
+  box-shadow: 0 15px 28px rgba(79, 70, 229, 0.12);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--foreground);
+  text-transform: uppercase;
+  backdrop-filter: blur(16px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.skillTag:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: rgba(79, 70, 229, 0.45);
+  box-shadow: 0 22px 34px rgba(79, 70, 229, 0.25);
+}
+
+.skillIcon {
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  color: var(--accent-gradient-end);
+}
+
+.skillLabel {
+  display: inline-flex;
+  letter-spacing: 0.02em;
+}
+
+:global(.dark) .section {
+  background: radial-gradient(circle at top, rgba(99, 102, 241, 0.28), transparent 55%), #0f172a;
+}
+
+:global(.dark) .parallaxGlow {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35), rgba(45, 212, 191, 0.14) 55%, transparent 75%);
+}
+
+:global(.dark) .card {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(30, 41, 59, 0.62));
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 40px 90px rgba(15, 23, 42, 0.55);
+}
+
+:global(.dark) .cardDescription {
+  color: rgba(203, 213, 225, 0.78);
+}
+
+:global(.dark) .skillTag {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.85), rgba(46, 16, 101, 0.55));
+  border-color: rgba(129, 140, 248, 0.32);
+  color: #e0e7ff;
+  box-shadow: 0 22px 40px rgba(30, 64, 175, 0.22);
+}
+
+:global(.dark) .skillTag:hover {
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: 0 30px 54px rgba(59, 130, 246, 0.35);
+}
+
+:global(.dark) .skillIcon {
+  color: #a5b4fc;
+}
+

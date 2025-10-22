@@ -1,0 +1,223 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.05);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem clamp(1rem, 4vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logoGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.logoImage {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);
+  background: radial-gradient(circle at 30% 20%, rgba(129, 140, 248, 0.4), transparent 65%), rgba(248, 250, 252, 0.85);
+}
+
+.logoImage :global(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--accent-gradient-end);
+}
+:global(.dark) .logoImage {
+  background: radial-gradient(circle at 30% 20%, rgba(96, 165, 250, 0.4), transparent 65%), rgba(15, 23, 42, 0.85);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.55);
+}
+
+:global(.dark) .logoImage :global(img) {
+  background-color: transparent;
+}
+
+:global(.dark) .brand {
+  color: var(--accent-gradient-end);
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLink {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--foreground);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gradient-start), var(--accent-gradient-end));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--accent-gradient-end);
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.themeToggle {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent-gradient-end);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.themeToggle:hover {
+  transform: translateY(-1px);
+  background: rgba(99, 102, 241, 0.18);
+}
+
+.menuButton {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(17, 24, 39, 0.06);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.menuButton:hover {
+  transform: translateY(-1px);
+  background: rgba(17, 24, 39, 0.1);
+}
+
+.mobileControls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobileSheet {
+  margin: 0.75rem clamp(1rem, 6vw, 2.5rem) 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  box-shadow: 0 24px 40px rgba(15, 23, 42, 0.12);
+  padding: 1rem;
+}
+
+.sheetLink {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.sheetLink + .sheetLink {
+  border-top: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+.sheetLink:hover {
+  color: var(--accent-gradient-end);
+}
+
+:global(.dark) .header {
+  background: rgba(15, 23, 42, 0.88);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.55);
+}
+
+:global(.dark) .navLink {
+  color: rgba(226, 232, 240, 0.82);
+}
+
+:global(.dark) .navLink:hover,
+:global(.dark) .navLink:focus-visible {
+  color: var(--accent-gradient-end);
+}
+
+:global(.dark) .themeToggle {
+  background: rgba(129, 140, 248, 0.2);
+  color: #c7d2fe;
+}
+
+:global(.dark) .themeToggle:hover {
+  background: rgba(129, 140, 248, 0.28);
+}
+
+:global(.dark) .menuButton {
+  background: rgba(30, 41, 59, 0.6);
+  color: rgba(226, 232, 240, 0.85);
+}
+
+:global(.dark) .menuButton:hover {
+  background: rgba(51, 65, 85, 0.65);
+}
+
+:global(.dark) .mobileSheet {
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow: 0 24px 55px rgba(2, 6, 23, 0.6);
+}
+
+:global(.dark) .sheetLink {
+  color: rgba(226, 232, 240, 0.82);
+}
+
+:global(.dark) .sheetLink + .sheetLink {
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex;
+  }
+
+  .mobileControls {
+    display: none;
+  }
+}
