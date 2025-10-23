@@ -32,13 +32,22 @@ jobs:
       - name: Enable Flutter web support
         run: flutter config --enable-web
 
+      - name: Show Flutter version
+        run: flutter --version
+
       - name: Get Flutter dependencies
-        run: flutter pub get
-        working-directory: flutter_app
+        run: |
+          cd flutter_app
+          flutter pub get
 
       - name: Build Flutter web app
-        run: flutter build web --release --base-href "/dagim-portfolio/"
-        working-directory: flutter_app
+        run: |
+          set -e
+          cd flutter_app
+          flutter build web --release --base-href /dagim-portfolio/
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
 
       - name: Upload web artifact
         uses: actions/upload-pages-artifact@v3
