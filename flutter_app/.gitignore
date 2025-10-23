@@ -1,0 +1,12 @@
+.dart_tool/
+.packages
+build/
+.android/
+.ios/
+.macos/
+windows/
+linux/
+web/
+.idea/
+.vscode/
+flutter_export_environment.sh
