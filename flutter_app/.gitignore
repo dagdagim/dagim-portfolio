@@ -6,7 +6,6 @@ build/
 .macos/
 windows/
 linux/
-web/
 .idea/
 .vscode/
 flutter_export_environment.sh
